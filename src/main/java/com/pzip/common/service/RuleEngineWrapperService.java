@@ -12,6 +12,8 @@ public interface RuleEngineWrapperService {
 	public Long wrapperService(long l);
 	public Integer wrapperService(int i);
 	public String wrapperService(String s);
+	//public Object wrapperService(Object s);
+	
 	
 	
 }
