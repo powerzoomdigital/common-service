@@ -10,7 +10,10 @@ import java.sql.Connection;
  *
  */
 public interface DBCommonService {
-	public Connection connect(String username, String password);
+	public Connection connect(String dbURL,String username, String password);
 	
-	
+		//Factory Method
+		 static DBCommonService createInstance() {
+		        return new CommonIPserviceImpl();  // Creating an instance of the implementation class
+		 }
 }

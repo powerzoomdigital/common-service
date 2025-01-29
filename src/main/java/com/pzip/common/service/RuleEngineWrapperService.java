@@ -14,6 +14,8 @@ public interface RuleEngineWrapperService {
 	public String wrapperService(String s);
 	//public Object wrapperService(Object s);
 	
-	
-	
+		//Factory Method
+		 static RuleEngineWrapperService createInstance() {
+		        return new CommonIPserviceImpl();  // Creating an instance of the implementation class
+		 }
 }

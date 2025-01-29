@@ -1,0 +1,8 @@
+com\pzip\common\service\DBCommonService.class
+com\pzip\common\service\util\CommonIPserviceImpl.class
+com\pzip\common\service\EncryptDecryptService.class
+com\pzip\common\Application.class
+com\pzip\common\service\util\SeviceTest.class
+com\pzip\common\service\ExternalAPIService.class
+com\pzip\common\service\CommonIPserviceImpl.class
+com\pzip\common\service\RuleEngineWrapperService.class

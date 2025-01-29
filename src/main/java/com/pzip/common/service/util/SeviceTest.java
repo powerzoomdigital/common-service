@@ -3,10 +3,11 @@
  */
 package com.pzip.common.service.util;
 
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
+
 import com.pzip.common.service.DBCommonService;
-import com.pzip.common.service.EncryptDecryptService;
-import com.pzip.common.service.ExternalAPIService;
-import com.pzip.common.serviceImpl.CommonIPserviceImpl;
 
 /**
  * @author Nadeem
@@ -19,18 +20,40 @@ public class SeviceTest {
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		
-		DBCommonService dbservice=new CommonIPserviceImpl();
-		dbservice.connect(null, null);
-		
-		EncryptDecryptService encreypt= new CommonIPserviceImpl();
-		encreypt.decrypt(null, null);
-		
-		ExternalAPIService apiservice=new CommonIPserviceImpl();
-		
-			System.out.println("Output from API : "+ apiservice.validateAadhaar("667125001525"));
-		
-
+		Connection conn=null;
+		try {
+		String dbURL = "jdbc:mysql://newaikyadb.mysql.database.azure.com/aikyadb";
+		String username = "aikya";
+		String password = "Champi0n335577";
+ 
+		DBCommonService dbservice = new CommonIPserviceImpl();
+ 
+		 conn = dbservice.connect(dbURL, username, password);
+ 
+	
+ 
+		//	System.out.println("Database connection established");
+			// Creating a Statement object
+			Statement stmt = conn.createStatement();
+			// Retrieving the data
+			ResultSet rs = stmt.executeQuery("Show Databases");
+			System.out.println("List of databases: ");
+			while (rs.next()) {
+				System.out.print(rs.getString(1));
+				System.out.println();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+ 
+		} finally {
+			if (conn != null) {
+				try {
+					conn.close();
+					System.out.println("Database connection terminated");
+				} catch (Exception e) {
+					/* ignore close errors */ }
+			}
+		}
 	}
-
+ 
 }
